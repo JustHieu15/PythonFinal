@@ -19,7 +19,7 @@ class base_model:
         table_name = self.get_table_name()
         fields = self.get_fields()
         columns = ",".join(fields.keys())
-        placeholders = ",".join(['%s'] * len(fields))  # Sửa ở đây
+        placeholders = ",".join(['%s'] * len(fields))
         sql = f"INSERT INTO {table_name} ({columns}) VALUES ({placeholders})"
         base_model.cursor.execute(sql, tuple(fields.values()))
         base_model.conn.commit()
